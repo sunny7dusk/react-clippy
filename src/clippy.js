@@ -33,7 +33,7 @@ export const Clippy = React.forwardRef(
         if (clippy.current) {
           ref.current = null;
           clippy.current.hide();
-          clippyNode.removeEventListener("click");
+          clippyNode.removeEventListener("click", onClick);
         }
       };
     }, []);
