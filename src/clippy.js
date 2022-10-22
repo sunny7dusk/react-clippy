@@ -32,7 +32,6 @@ export const Clippy = React.forwardRef(
 
       return () => {
         if (clippy.current) {
-          console.log("lol");
           ref.current = null;
           clippy.current.hide();
           clippy.current._el[0].removeEventListener("click", onClick);
