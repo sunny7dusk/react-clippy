@@ -1,3 +1,5 @@
+Originally forked from https://github.com/luiz-chagas/react-clippy
+
 # Clippy React
 
 React wrapper around [ClippyJS](https://github.com/pi0/clippyjs)
