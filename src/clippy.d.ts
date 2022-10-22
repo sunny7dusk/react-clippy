@@ -62,6 +62,7 @@ const Agents = [
 interface Props {
   name?: typeof Agents[number];
   onLoad?: () => void;
+  onClick?: () => void;
   ref: React.MutableRefObject<Clippy | null | undefined>;
 }
 

@@ -13,7 +13,14 @@ const Demo = () => {
   return (
     <div>
       <h1>Clippy Demo</h1>
-      <Clippy name="Clippy" ref={clippy} onLoad={onLoad} />
+      <Clippy
+        name="Clippy"
+        ref={clippy}
+        onLoad={onLoad}
+        onClick={() => {
+          clippy.current.speak("testing onclick");
+        }}
+      />
     </div>
   );
 };
