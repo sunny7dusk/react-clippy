@@ -9,15 +9,19 @@ export const Clippy = React.forwardRef(
       throw Error("Clippy component requires a ref");
     }
 
-    useEffect(async () => {
-      try {
-        const agent = await load(name);
-        clippy.current = agent;
-        ref.current = agent;
-        onLoad();
-      } catch (err) {
-        console.error(err);
-      }
+    useEffect(() => {
+      const asyncTask = async () => {
+        try {
+          const agent = await load(name);
+          clippy.current = agent;
+          ref.current = agent;
+          onLoad();
+        } catch (err) {
+          console.error(err);
+        }
+      };
+
+      asyncTask();
 
       return () => {
         if (clippy.current) {
