@@ -10,16 +10,17 @@ export const Clippy = React.forwardRef(
     }
 
     useEffect(() => {
-      let clippyNode;
       const asyncTask = async () => {
         try {
           const agent = await load(name);
-          console.log("lol");
-          console.log(onClick);
           clippy.current = agent;
           ref.current = agent;
-          clippyNode = document.getElementsByClassName("clippy")[0];
-          clippyNode.addEventListener(`click`, onClick);
+          // console.log(typeof clippy.current);
+          // clippyNode = document.getElementsByClassName("clippy")[0];
+          // clippyNode.addEventListener(`click`, onClick);
+
+          clippy.current._el[0].addEventListener(`click`, onClick);
+          // ref.current.addEventListener(`click`, onClick);
 
           onLoad();
         } catch (err) {
@@ -31,9 +32,10 @@ export const Clippy = React.forwardRef(
 
       return () => {
         if (clippy.current) {
+          console.log("lol");
           ref.current = null;
           clippy.current.hide();
-          clippyNode.removeEventListener("click", onClick);
+          clippy.current._el[0].removeEventListener("click", onClick);
         }
       };
     }, []);
